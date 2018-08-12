@@ -5,6 +5,8 @@
  */
 package be.belgiplast.quasar.assembly.instructions;
 
+import java.io.IOException;
+import be.belgiplast.quasar.assembly.Code;
 import be.belgiplast.quasar.assembly.Instruction;
 
 /**
@@ -12,6 +14,17 @@ import be.belgiplast.quasar.assembly.Instruction;
  * @author T0194671
  */
 public class LdcW extends Instruction{
+
+    private int index;
+    
+    public LdcW(Code.InstructionCounter dis) throws IOException {
+        super(dis);
+        index =  dis.readByte() << 8 | dis.readByte();
+    }
+
+    public int getIndex() {
+        return index;
+    }
 
     @Override
     public String getMnemonic() {
@@ -21,5 +34,10 @@ public class LdcW extends Instruction{
     @Override
     public int getOpcode() {
         return 19;
+    }
+    
+    @Override
+    protected String dumpParams() {
+        return Integer.toString(index);
     }
 }

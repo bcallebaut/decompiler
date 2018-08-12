@@ -6,7 +6,9 @@
 package be.belgiplast.quasar.assembly.instructions;
 
 import java.io.DataInput;
+import java.io.DataInputStream;
 import java.io.IOException;
+import be.belgiplast.quasar.assembly.Code;
 import be.belgiplast.quasar.assembly.Instruction;
 
 /**
@@ -16,6 +18,11 @@ import be.belgiplast.quasar.assembly.Instruction;
 public class ALoad extends Instruction{
 
     private int index;
+
+    public ALoad( Code.InstructionCounter dis) throws IOException {
+        super(dis);
+        this.index = dis.readByte();
+    }
     
     @Override
     public String getMnemonic() {
@@ -26,8 +33,9 @@ public class ALoad extends Instruction{
     public int getOpcode() {
         return 25;
     }
-    
-    public void decode(DataInput dis) throws IOException{
-        index = dis.readByte();
+
+    @Override
+    protected String dumpParams() {
+        return Integer.toString(index);
     }
 }

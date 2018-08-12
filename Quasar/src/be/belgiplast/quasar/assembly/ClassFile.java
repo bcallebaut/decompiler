@@ -7,6 +7,8 @@ package be.belgiplast.quasar.assembly;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -45,10 +47,16 @@ public class ClassFile {
         for (MethodInfo i : backend.getMethods()){
             System.out.println("method :  " + i.getName() + " " + i.getDescriptor());
             for (AttributeInfo nfo : i.getAttributes()){
-                System.out.println("Name : " + nfo.getName());
+                
                 if (nfo.getName().equals("Code")){
-                    nfo.getInfo();
-                }
+                    try {
+                        //nfo.getInfo();
+                        Code code = new Code(backend.cp,nfo.getInfo());
+                        code.dump();
+                    } catch (IOException ex) {
+                        Logger.getLogger(ClassFile.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }else System.out.println("Name : " + nfo.getName());
             }
         }
         

@@ -5,6 +5,7 @@
  */
 package be.belgiplast.quasar.assembly.instructions;
 
+import be.belgiplast.quasar.assembly.Code;
 import be.belgiplast.quasar.assembly.Instruction;
 
 /**
@@ -13,6 +14,12 @@ import be.belgiplast.quasar.assembly.Instruction;
  */
 public class DLoad0 extends Instruction{
 
+    public DLoad0(Code.InstructionCounter dis) {
+        super(dis);
+    }
+
+    
+    
     @Override
     public String getMnemonic() {
         return "dload0";

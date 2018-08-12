@@ -7,6 +7,7 @@ package be.belgiplast.quasar.assembly;
 
 import be.belgiplast.quasar.assembly.LowLevelClassFile.ConstantPool;
 
+
 /**
  *
  * @author T0194671

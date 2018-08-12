@@ -7,7 +7,7 @@ package be.belgiplast.quasar.assembly;
 
 import java.io.DataInputStream;
 import java.io.InputStream;
-
+import be.belgiplast.quasar.assembly.LowLevelClassFile.ConstantPool;
 
 /**
  *

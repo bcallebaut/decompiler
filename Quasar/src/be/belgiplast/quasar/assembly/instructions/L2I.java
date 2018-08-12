@@ -5,6 +5,7 @@
  */
 package be.belgiplast.quasar.assembly.instructions;
 
+import be.belgiplast.quasar.assembly.Code;
 import be.belgiplast.quasar.assembly.Instruction;
 
 /**
@@ -12,6 +13,10 @@ import be.belgiplast.quasar.assembly.Instruction;
  * @author T0194671
  */
 public class L2I extends Instruction{
+
+    public L2I(Code.InstructionCounter dis) {
+        super(dis);
+    }
 
     @Override
     public String getMnemonic() {

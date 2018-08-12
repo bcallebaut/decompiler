@@ -5,6 +5,8 @@
  */
 package be.belgiplast.quasar.assembly.instructions;
 
+import java.io.DataInputStream;
+import be.belgiplast.quasar.assembly.Code;
 import be.belgiplast.quasar.assembly.Instruction;
 
 /**
@@ -13,6 +15,10 @@ import be.belgiplast.quasar.assembly.Instruction;
  */
 public class AAStore extends Instruction{
 
+    public AAStore(Code.InstructionCounter dis) {
+        super(dis);
+    }
+    
     @Override
     public String getMnemonic() {
         return "aastore";

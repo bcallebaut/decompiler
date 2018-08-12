@@ -5,9 +5,9 @@
  */
 package be.belgiplast.quasar.assembly.instructions;
 
+import java.io.DataInputStream;
+import be.belgiplast.quasar.assembly.Code.InstructionCounter;
 import be.belgiplast.quasar.assembly.Instruction;
-
-
 
 /**
  *
@@ -15,6 +15,11 @@ import be.belgiplast.quasar.assembly.Instruction;
  */
 public class AALoad extends Instruction{
 
+    public AALoad(InstructionCounter dis) {
+        super(dis);
+        
+    }
+    
     @Override
     public String getMnemonic() {
         return "aaload";

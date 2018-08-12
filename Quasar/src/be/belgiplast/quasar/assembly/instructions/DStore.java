@@ -5,6 +5,8 @@
  */
 package be.belgiplast.quasar.assembly.instructions;
 
+import java.io.IOException;
+import be.belgiplast.quasar.assembly.Code;
 import be.belgiplast.quasar.assembly.Instruction;
 
 /**
@@ -13,6 +15,17 @@ import be.belgiplast.quasar.assembly.Instruction;
  */
 public class DStore extends Instruction{
 
+    int index;
+    
+    public DStore(Code.InstructionCounter dis) throws IOException {
+        super(dis);
+        index = dis.readByte();
+    }
+
+    public int getIndex() {
+        return index;
+    }
+    
     @Override
     public String getMnemonic() {
         return "dstore";
@@ -21,5 +34,10 @@ public class DStore extends Instruction{
     @Override
     public int getOpcode() {
         return 57;
+    }
+    
+    @Override
+    protected String dumpParams() {
+        return Integer.toString(index);
     }
 }

@@ -5,11 +5,11 @@
  */
 package be.belgiplast.quasar.assembly;
 
-import be.belgiplast.quasar.assembly.LowLevelClassFile.ConstantPool;
 import java.io.DataInput;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import be.belgiplast.quasar.assembly.LowLevelClassFile.ConstantPool;
 
 /**
  *

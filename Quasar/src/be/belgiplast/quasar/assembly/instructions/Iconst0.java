@@ -5,6 +5,7 @@
  */
 package be.belgiplast.quasar.assembly.instructions;
 
+import be.belgiplast.quasar.assembly.Code;
 import be.belgiplast.quasar.assembly.Instruction;
 
 /**
@@ -12,6 +13,10 @@ import be.belgiplast.quasar.assembly.Instruction;
  * @author T0194671
  */
 public class Iconst0 extends Instruction{
+
+    public Iconst0(Code.InstructionCounter dis) {
+        super(dis);
+    }
 
     @Override
     public String getMnemonic() {

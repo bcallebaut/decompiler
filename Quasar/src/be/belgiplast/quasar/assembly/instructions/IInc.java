@@ -5,6 +5,8 @@
  */
 package be.belgiplast.quasar.assembly.instructions;
 
+import java.io.IOException;
+import be.belgiplast.quasar.assembly.Code;
 import be.belgiplast.quasar.assembly.Instruction;
 
 /**
@@ -12,6 +14,23 @@ import be.belgiplast.quasar.assembly.Instruction;
  * @author T0194671
  */
 public class IInc extends Instruction{
+
+    private int index;
+    private int constant;
+    
+    public IInc(Code.InstructionCounter dis) throws IOException {
+        super(dis);
+        index = dis.readByte();
+        constant = dis.readByte();
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public int getConstant() {
+        return constant;
+    }
 
     @Override
     public String getMnemonic() {
@@ -21,5 +40,10 @@ public class IInc extends Instruction{
     @Override
     public int getOpcode() {
         return 132;
+    }
+    
+    @Override
+    protected String dumpParams() {
+        return Integer.toString(index) +" " +Integer.toString(constant);
     }
 }
